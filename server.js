@@ -1,24 +1,15 @@
-import express from 'express';
-import cors from 'cors';
-import bodyParser from 'body-parser';
-
+const express = require('express');
 const app = express();
-
-app.use(cors());
-app.use(bodyParser.json());
-
 
 const issue = {
     title: "Hello"
 };
 
-
-app.get('*', (req, res) => {
-    console.log('issue recieved');
+app.get('/', function(req,res) {
+    console.log('funguje');
     res.json(issue);
 });
 
+// Start the app by listening on the default Heroku port
+app.listen(process.env.PORT || 8080, () => {console.log('server running')} );
 
-
-
-app.listen(process.env.PORT || 8080, () => console.log('Express server running on port 8080'));
