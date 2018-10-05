@@ -1,6 +1,7 @@
 const bodyParser = require('body-parser');
 const express = require('express');
 const mongoose = require('mongoose');
+const Issue = require('./models/Issue');
 
 const app = express();
 const router = express.Router();
