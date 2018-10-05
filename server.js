@@ -13,7 +13,7 @@ const issue = {
 };
 
 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
     console.log('issue recieved');
     res.json(issue);
 });
