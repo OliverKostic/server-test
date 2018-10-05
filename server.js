@@ -1,15 +1,18 @@
 const express = require('express');
 const app = express();
 
+const router = express.Router();
+
 const issue = {
     title: "Hello"
 };
 
-app.get('/', function(req,res) {
-    console.log('funguje');
+
+router.route('/issues').get((req, res) => {
     res.json(issue);
 });
 
-// Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8080, () => {console.log('server running')} );
+app.use('/', router);
+
+app.listen(process.env.PORT || 8080, () => console.log('Express server running on port 4000'));
 
